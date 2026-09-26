@@ -9,14 +9,20 @@
           "functions": [
             {
               "function": "minecraft:set_name",
-              "entity": "this",
-              "name": "{\"text\":\"Dash Sword\",\"color\":\"aqua\",\"bold\":true}"
+              "name": {
+                "text": "Dash Sword",
+                "color": "aqua",
+                "bold": true
+              }
             },
             {
               "function": "minecraft:set_lore",
-              "entity": "this",
               "lore": [
-                "{\"text\":\"Nhảy lên và lướt khi chém\",\"color\":\"gray\",\"italic\":true}"
+                {
+                  "text": "Nhảy lên và lướt khi chém",
+                  "color": "gray",
+                  "italic": true
+                }
               ]
             },
             {

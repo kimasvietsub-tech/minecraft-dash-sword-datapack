@@ -8,16 +8,16 @@
 
 ## Lấy kiếm
 
-Gõ lệnh này để lấy kiếm Dash Sword:
-
-```
-/loot give @s loot dash_sword:dash_sword
-```
-
-Hoặc dùng hàm này (nếu loot table không hoạt động):
+Cách chính xác nhất:
 
 ```
 /function dash_sword:give_sword
+```
+
+Nếu muốn dùng loot table:
+
+```
+/loot give @s loot dash_sword:dash_sword
 ```
 
 ## Chỉnh sửa thông số
@@ -48,8 +48,8 @@ Bạn có thể sửa các giá trị:
 |------|-------|
 | `/reload` | Tải lại datapack |
 | `/datapack list` | Kiểm tra datapack đã load |
-| `/loot give @s loot dash_sword:dash_sword` | Lấy kiếm |
-| `/function dash_sword:give_sword` | Lấy kiếm (thay thế) |
+| `/function dash_sword:give_sword` | Lấy kiếm Dash Sword |
+| `/loot give @s loot dash_sword:dash_sword` | Lấy kiếm (phương án dự phòng) |
 
 ## Lưu ý
 
