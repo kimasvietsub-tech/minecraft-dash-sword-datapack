@@ -1,0 +1,12 @@
+{
+  "condition": "minecraft:entity_properties",
+  "entity": "this",
+  "predicate": {
+    "equipment": {
+      "mainhand": {
+        "items": ["minecraft:diamond_sword"],
+        "nbt": "{dash_sword:1b}"
+      }
+    }
+  }
+}
