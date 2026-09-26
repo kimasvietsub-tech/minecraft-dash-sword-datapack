@@ -1,8 +1,7 @@
-# Khởi tạo scoreboard
-scoreboard objectives add dash_use minecraft.used:minecraft.diamond_sword
-scoreboard objectives add dash_cooldown dummy
-scoreboard objectives add dash_step dummy
-scoreboard objectives add dash_cfg dummy
-
-# Load config
-function dash_sword:config
+scoreboard objectives add ds.dash dummy
+scoreboard objectives add ds.step dummy
+scoreboard objectives add ds.cfg dummy
+scoreboard players set #distance ds.cfg 5
+scoreboard players set #duration ds.cfg 8
+scoreboard players set #jump ds.cfg 6
+scoreboard players set #cooldown ds.cfg 0

@@ -1,13 +1,8 @@
-# Giảm cooldown
-execute as @a[scores={dash_cooldown=1..}] run scoreboard players remove @s dash_cooldown 1
+# Cooldown is global only as a short safety value; dash state is per player.
+execute if score #cooldown ds.cfg matches 1.. run scoreboard players remove #cooldown ds.cfg 1
 
-# Thực hiện bước lướt
-execute as @a[scores={dash_step=1..}] at @s run tp @s ^ ^ ^0.5
-execute as @a[scores={dash_step=1..}] at @s run particle end_rod ~ ~0.6 ~ 0.1 0.1 0.1 0.02 2 force
-execute as @a[scores={dash_step=1..}] run scoreboard players remove @s dash_step 1
+# Advance active dashes. Small forward steps are used instead of one large move.
+execute as @a[scores={ds.dash=1..}] at @s run function dash_sword:move
 
-# Phát hiện khi swing kiếm
-execute as @a[scores={dash_use=1..}] at @s if predicate dash_sword:holding_dash_sword unless score @s dash_cooldown matches 1.. run function dash_sword:dash
-
-# Reset
-scoreboard players set @a dash_use 0
+# Keep the custom advancement repeatable.
+execute as @a[scores={ds.dash=0}] run advancement revoke @s only dash_sword:attack

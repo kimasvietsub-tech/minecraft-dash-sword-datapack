@@ -1,0 +1,1 @@
+give @s minecraft:diamond_sword[minecraft:custom_name='{"text":"Dash Sword","color":"aqua","italic":false}',minecraft:custom_data={dash_sword:1b},minecraft:enchantment_glint_override=true,minecraft:damage=0] 1

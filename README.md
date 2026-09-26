@@ -1,59 +1,30 @@
-# Dash Sword Datapack - Minecraft 1.21.1
+# Dash Sword datapack for Minecraft Java Edition 1.21.1
 
-## Cài đặt nhanh
+## Install
 
-1. Tải thư mục này về máy tính
-2. Đặt vào: `.minecraft/saves/TênThếGiới/datapacks/`
-3. Trong game, gõ: `/reload`
+Copy the folder containing `pack.mcmeta` into `<world>/datapacks/`, then run:
 
-## Lấy kiếm
-
-Cách chính xác nhất:
-
-```
-/function dash_sword:give_sword
+```mcfunction
+/reload
 ```
 
-Nếu muốn dùng loot table:
+## Get the sword
 
-```
-/loot give @s loot dash_sword:dash_sword
-```
-
-## Chỉnh sửa thông số
-
-Mở file:
-```
-data/dash_sword/functions/config.mcfunction
+```mcfunction
+/function dash_sword:give
 ```
 
-Bạn có thể sửa các giá trị:
-- `#dash_distance` = Khoảng cách lướt (block)
-- `#dash_jump_power` = Lực nhảy
-- `#dash_cooldown` = Thời gian chờ (tick, 20 = 1 giây)
-- `#dash_steps` = Số bước lướt
+## Configuration
 
-## Tính năng
+Edit only the values at the bottom of `data/dash_sword/functions/load.mcfunction`, then run `/reload`:
 
-✅ Nhảy lên khi chém  
-✅ Lướt mượt mà 5 block về phía trước  
-✅ Hoạt động bất kể có trúng mục tiêu hay không  
-✅ Có cooldown  
-✅ Hiệu ứng hạt và âm thanh  
-✅ Dễ chỉnh sửa thông số  
+- `#distance`: intended dash distance in blocks. The default is 5.
+- `#duration`: number of movement ticks. The default is 8; together with the 0.625-block step this gives 5 blocks.
+- `#jump`: reserved configuration value for future vertical tuning.
+- `#cooldown`: short anti-retrigger delay.
 
-## Các lệnh hữu ích
+The datapack uses eight short forward movements rather than one 5-block move, so the dash appears smooth. It also stops when the next position is tagged as solid.
 
-| Lệnh | Mô tả |
-|------|-------|
-| `/reload` | Tải lại datapack |
-| `/datapack list` | Kiểm tra datapack đã load |
-| `/function dash_sword:give_sword` | Lấy kiếm Dash Sword |
-| `/loot give @s loot dash_sword:dash_sword` | Lấy kiếm (phương án dự phòng) |
+## Important Minecraft limitation
 
-## Lưu ý
-
-- Datapack yêu cầu Minecraft 1.21.1+
-- Hoạt động trên Single Player và Server
-- Không cần mod hay plugin khác
-- 1 giây = 20 tick
+Vanilla Java datapacks in 1.21.1 do not expose a reliable “left-click/attack swing” event when the attack misses. The `minecraft:player_hurt_entity` advancement therefore triggers this sword when it damages an entity, but a completely missed swing cannot be detected by commands alone. A mod/plugin is required for true hit-or-miss swing detection.
